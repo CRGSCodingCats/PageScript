@@ -1,0 +1,36 @@
+[Title: My First PageScript Page]
+[Favicon: favicon.ico]
+
+# Welcome to PageScript
+
+This is a *simple*, **friendly**, and lightning-fast way to build a web page.
+
+[Image: banner.jpg]
+
+[Button: Get Started > https://pagescript.dev/start]
+[Link: Read the Docs > https://pagescript.dev/docs]
+
+---
+
+# Why You'll Love It
+
+[List: No HTML knowledge required | Easy-to-read syntax | Fast prototyping]
+
+[OList: Write your content | Run the converter | Open your page]
+
+---
+
+# Meet the Team
+
+[Table:
+Name | Role | Location
+Hector | Owner | Colchester
+Ayat | Website Developer | London
+Aadhav | Coder | London
+]
+
+---
+
+[Script:
+console.log("PageScript loaded successfully!");
+]
