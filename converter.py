@@ -17,28 +17,28 @@ def parse_pagescript(pagescript):
         elif line == '---':
             html.append("<hr>")
         elif line.startswith('[image:'):
-            src = re.findall(r'
+            src = re.findall(r'''
 
 \[image:\s*(.*?)\]
 
-', line)
+''', line)
             if src:
                 html.append(f'<img src="{src[0]}" alt="Image">')
         elif line.startswith('[button:'):
-            match = re.match(r'
+            match = re.match(r'''
 
 \[button:\s*(.*?)\s*>\s*(.*?)\]
 
-', line)
+''', line)
             if match:
                 text, link = match.groups()
                 html.append(f'<a href="{link}"><button>{text}</button></a>')
         elif line.startswith('[link:'):
-            match = re.match(r'
+            match = re.match(r'''
 
 \[link:\s*(.*?)\s*>\s*(.*?)\]
 
-', line)
+''', line)
             if match:
                 text, url = match.groups()
                 html.append(f'<a href="{url}">{text}</a>')
