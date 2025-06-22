@@ -26,3 +26,27 @@ This is *italic* text.
 
 Combined Styling:
 Mixing *italic* and **bold** in a paragraph.
+
+Favicon:
+[Favicon: example.ico]
+
+Title:
+[Title: My Cool Page]
+
+Lists:
+- Bullet list:
+  [List: Apples | Bananas | Oranges]
+- Numbered list:
+  [oList: Apples | Bananas | Oranges]
+
+Tables:
+[Table:
+Name | Age | City
+Alice | 30 | London
+Bob | 28 | York
+]
+
+<Script>:
+[Script:
+console.log("Hello, world!");
+]
