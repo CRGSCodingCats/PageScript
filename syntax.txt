@@ -1,0 +1,28 @@
+Here are examples of how to use PageScript:
+
+Header:
+# Welcome to PageScript
+
+Paragraph:
+This is a simple paragraph with *italic* and **bold** formatting.
+
+Image:
+[image: cat.jpg]
+
+Button:
+[button: Click Me > https://example.com]
+
+Link:
+[link: Visit Site > https://mysite.com]
+
+Horizontal Rule:
+---
+
+Bold Text:
+This is **bold** text.
+
+Italic Text:
+This is *italic* text.
+
+Combined Styling:
+Mixing *italic* and **bold** in a paragraph.
