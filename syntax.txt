@@ -50,3 +50,17 @@ Bob | 28 | York
 [Script:
 console.log("Hello, world!");
 ]
+
+Comments:
+[Comment: This is a comment]
+
+ID and Class Attributes:
+# Welcome [id:hello] [class:intro]
+
+Div Containers:
+[Div: [id:hello] [class:intro]
+# Welcome
+]
+
+Charset:
+[Charset: UTF-8]
