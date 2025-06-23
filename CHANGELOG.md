@@ -47,3 +47,25 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - Minor spacing and formatting tweaks for output consistency
+
+---
+
+## 0.1.3-alpha - 23/06/25
+
+### Added
+- PageScript:
+  - `[Comment: ...]`: Injects HTML comments via `<!-- ... -->`
+  - `[Charset: UTF-8]`: Adds the option to override the default `<meta charset="UTF-8">` tag in the HTML head
+  - ID and Class attributes for headings and divs using `[id:...]` and `[class:...]`
+  - `[Div: [id:...] [class:...]] ...]`: Opens a `<div>` block with optional attributes, closed using a standalone `]`
+- Internal:
+  - `extract_attributes()` helper for reusing ID/class parsing logic across elements
+ 
+### Changed
+- Updated heading parser to support inline `[id:...]` and `[class:...]` attributes
+- `converter.py` logic now tracks nested blocks like `[Div:]]` cleanly using flags
+- Charset is now dynamically changed instead of hardcoded
+
+### Fixed
+- Improved robustness of block end parsing (`]`) to avoid conflicts across `[Table:]`, `[Script:]` and `[Div:]]`
+- Cleaned up inline formatting edge cases with bold/italic parsing
