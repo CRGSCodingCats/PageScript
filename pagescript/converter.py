@@ -6,16 +6,16 @@ def extract_attributes(text):
     Extract ID and class attribute tokens from a given text.
     Returns a tuple of (cleaned_text, attributes_string).
     """
-    id_match = re.search(r'
+    id_match = re.search(r'''
 
 \[id:(.*?)\]
 
-', text)
-    class_match = re.search(r'
+''', text)
+    class_match = re.search(r'''
 
 \[class:(.*?)\]
 
-', text)
+''', text)
     attrs = ''
     if id_match:
         attrs += f' id="{id_match.group(1).strip()}"'
@@ -56,55 +56,55 @@ def parse_pagescript(pagescript):
 
         # --- Charset override ---
         if line.startswith('[Charset:'):
-            match = re.match(r'
+            match = re.match(r'''
 
 \[Charset:\s*(.*?)\]
 
-', line)
+''', line)
             if match:
                 default_charset = match.group(1).strip()
             continue
 
         # --- Title ---
         elif line.startswith('[Title:'):
-            match = re.match(r'
+            match = re.match(r'''
 
 \[Title:\s*(.*?)\]
 
-', line)
+''', line)
             if match:
                 html_head['title'] = match.group(1).strip()
             continue
 
         # --- Favicon ---
         elif line.startswith('[Favicon:'):
-            match = re.match(r'
+            match = re.match(r'''
 
 \[Favicon:\s*(.*?)\]
 
-', line)
+''', line)
             if match:
                 html_head['favicon'] = match.group(1).strip()
             continue
 
         # --- Image ---
         elif line.startswith('[Image:'):
-            match = re.match(r'
+            match = re.match(r'''
 
 \[Image:\s*(.*?)\]
 
-', line)
+''', line)
             if match:
                 html_body.append(f'<img src="{match.group(1).strip()}" alt="Image">')
             continue
 
         # --- Button ---
         elif line.startswith('[Button:'):
-            match = re.match(r'
+            match = re.match(r'''
 
 \[Button:\s*(.*?)\s*>\s*(.*?)\]
 
-', line)
+''', line)
             if match:
                 text, url = match.groups()
                 html_body.append(f'<a href="{url.strip()}"><button>{text.strip()}</button></a>')
@@ -112,11 +112,11 @@ def parse_pagescript(pagescript):
 
         # --- Link ---
         elif line.startswith('[Link:'):
-            match = re.match(r'
+            match = re.match(r'''
 
 \[Link:\s*(.*?)\s*>\s*(.*?)\]
 
-', line)
+''', line)
             if match:
                 text, url = match.groups()
                 html_body.append(f'<a href="{url.strip()}">{text.strip()}</a>')
@@ -124,11 +124,11 @@ def parse_pagescript(pagescript):
 
         # --- Unordered List ---
         elif line.startswith('[List:'):
-            match = re.match(r'
+            match = re.match(r'''
 
 \[List:\s*(.*?)\]
 
-', line)
+''', line)
             if match:
                 items = [f"<li>{item.strip()}</li>" for item in match.group(1).split('|')]
                 html_body.append("<ul>\n" + "\n".join(items) + "\n</ul>")
@@ -136,11 +136,11 @@ def parse_pagescript(pagescript):
 
         # --- Ordered List ---
         elif line.startswith('[OList:'):
-            match = re.match(r'
+            match = re.match(r'''
 
 \[OList:\s*(.*?)\]
 
-', line)
+''', line)
             if match:
                 items = [f"<li>{item.strip()}</li>" for item in match.group(1).split('|')]
                 html_body.append("<ol>\n" + "\n".join(items) + "\n</ol>")
